@@ -97,3 +97,21 @@ ajoutBord.addEventListener("mouseout", () => {
 reponse.addEventListener("mouseover", () => {
   reponse.style.transform = "rotate(2deg)";
 });
+
+// maintenant les keypress event
+
+const keypressContainer = document.querySelector(".keypress");
+const key = document.getElementById("key");
+
+document.addEventListener("keypress", (e) => {
+  console.log(e.key);
+  key.textContent = e.key;
+
+  if(e.key === "z") {
+      keypressContainer.style.background = "cyan";
+  } else if (e.key === "a"){
+      keypressContainer.style.background = "green";
+  } else {
+      keypressContainer.style.background = "red";
+  }
+});
