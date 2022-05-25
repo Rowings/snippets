@@ -64,8 +64,6 @@ btn2.addEventListener("click", () => {
   reponse.style.background = "red";
 });
 
-console.log(reponse);
-
 //---------------------------------------------------
 
 // ici il y a les mouvements que l'ont peut faire avec une souris
@@ -103,15 +101,77 @@ reponse.addEventListener("mouseover", () => {
 const keypressContainer = document.querySelector(".keypress");
 const key = document.getElementById("key");
 
-document.addEventListener("keypress", (e) => {
-  console.log(e.key);
-  key.textContent = e.key;
+// ici on à une const pour le son, l'object Audio existe lui déjà dans javascript
+// const ring = () => {
+//   const audio = new Audio();
+//   audio.src = "./Enter.mp3";
+//   audio.play();
+// };
 
-  if(e.key === "z") {
-      keypressContainer.style.background = "cyan";
-  } else if (e.key === "a"){
-      keypressContainer.style.background = "green";
+// document.addEventListener("keypress", (e) => {
+//   console.log(e.key);
+//   key.textContent = e.key;
+
+//   if (e.key === "z") {
+//     keypressContainer.style.background = "cyan";
+//   } else if (e.key === "a") {
+//     keypressContainer.style.background = "green";
+//   } else {
+//     keypressContainer.style.background = "red";
+//   }
+
+//   ring();
+// });
+
+// Scroll event
+
+const nav = document.querySelector("nav");
+
+window.addEventListener("scroll", () => {
+  console.log(window.scrollY);
+
+  if (window.scrollY > 120) {
+    nav.style.top = 0;
   } else {
-      keypressContainer.style.background = "red";
+    nav.style.top = -50 + "px";
   }
 });
+
+// evenement sur les formulaires / Form events
+// 2 type different input -submit
+
+const inputName = document.querySelector('input[type="text"]');
+const select = document.querySelector("select");
+const form = document.querySelector("form");
+let pseudo = "";
+let language = "";
+
+inputName.addEventListener("input", (e) => {
+
+  pseudo = e.target.value;
+});
+
+select.addEventListener("input", (e) => {
+  language = e.target.value;
+});
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  if (cgv.checked) {
+    document.querySelector("form > div").innerHTML = `
+    <h3>Pseudo : ${pseudo}</h3>
+    <h4>Language préféré : ${language}</h4>`;
+  } else {
+    alert("Accepter les CGV")
+
+  }
+});
+
+
+// Load event 
+
+
+
+
+
