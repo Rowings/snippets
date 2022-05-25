@@ -108,20 +108,20 @@ const key = document.getElementById("key");
 //   audio.play();
 // };
 
-// document.addEventListener("keypress", (e) => {
-//   console.log(e.key);
-//   key.textContent = e.key;
+ document.addEventListener("keypress", (e) => {
+   console.log(e.key);
+   key.textContent = e.key;
 
-//   if (e.key === "z") {
-//     keypressContainer.style.background = "cyan";
-//   } else if (e.key === "a") {
-//     keypressContainer.style.background = "green";
-//   } else {
-//     keypressContainer.style.background = "red";
-//   }
+   if (e.key === "z") {
+     keypressContainer.style.background = "cyan";
+   } else if (e.key === "a") {
+     keypressContainer.style.background = "green";
+   } else {
+     keypressContainer.style.background = "red";
+   }
 
 //   ring();
-// });
+ });
 
 // Scroll event
 
@@ -147,7 +147,6 @@ let pseudo = "";
 let language = "";
 
 inputName.addEventListener("input", (e) => {
-
   pseudo = e.target.value;
 });
 
@@ -163,15 +162,20 @@ form.addEventListener("submit", (e) => {
     <h3>Pseudo : ${pseudo}</h3>
     <h4>Language préféré : ${language}</h4>`;
   } else {
-    alert("Accepter les CGV")
-
+    alert("Accepter les CGV");
   }
 });
 
+// Load event
 
-// Load event 
+window.addEventListener("load", () => {
+  console.log("Document Chargéeeeeee !");
+});
 
+//----------------------------
 
+// Les forEach
 
+const boxes = document.getElementsByClassName("box");
 
-
+console.log(boxes);
